@@ -1,0 +1,177 @@
+id: cadastro-funcionario
+type: PageHeaderMenu
+properties:
+  title:  cadastro-funcionario # The title in the browser tab.
+layout:
+  contentJustify: center # Center the contents of the page
+blocks:
+  - id: content_card
+    type: Card
+    style:
+      border-radius: 50px 20px
+      box-shadow: 10px 10px 10px 5px black
+    layout:
+      size: 800 # Set the size of the card so it does not fill the full screen
+      contentGutter: 5 # Make a 16px gap between all blocks in this card
+    blocks:
+      - id: page_heading
+        type: Title
+        properties:
+          content: Cadastro de funcionários # Change the title on the page.
+          level: 3 # Make the title a little smaller (an html `<h3>`).
+      - id: cpf
+        type: TextInput
+        required: true
+        properties:
+          title: CPF 
+
+      - id: email
+        type: TextInput
+        required: true
+        properties:
+          title: Email  
+
+      - id: required_example
+        type: PasswordInput
+        required: true
+        properties:
+          title: Senha  
+
+      - id: given_name
+        type: TextInput
+        required: true
+        properties:
+          title: Nome
+
+      - id: family_name
+        type: TextInput
+        required: true
+        properties:
+          title: Sobrenome 
+      - id: cep
+        type: TextInput
+        required: true
+        properties:
+          title: Cep
+      - id: data
+        type: DateSelector
+        properties:
+          autoFocus: true
+          disabledDates:
+            dates: []
+            ranges: []
+
+
+      - id: logradouro
+        type: TextInput
+        required: true
+        properties:
+          title: Logradoro
+
+      - id: bairro
+        type: TextInput
+        required: true
+        properties:
+          title: Bairro
+
+      - id: cidade
+        type: TextInput
+        required: true
+        properties:
+          title: Cidade   
+
+      - id: estado
+        type: TextInput
+        required: true
+        properties:
+          title: Estado 
+      - id: numero
+        type: TextInput
+        required: true
+        properties:
+          title: Numero   
+
+       
+      - id: filhos
+        # type: MultipleSelector
+        required: true
+        # properties:
+        #   title:  Quantidade de filhos 
+
+
+        type: Selector
+        properties:
+          title:  Quantidade de filhos
+          options:
+            - label: 1
+              value: 1
+              disabled: false
+              filterString: null
+              style: null
+            - label: 2
+              value: 2
+              disabled: false
+              filterString: null
+              style: null
+            - label: 3 
+              value: 3
+              disabled: false
+              filterString: null
+              style: null
+
+            - label: Mais
+              value: 4
+              disabled: false
+              filterString: null
+              style: null
+      - id: nome dos filhos
+        type: TextInput
+        required: true
+        properties:
+          title: Nome dos filhos 
+
+      - id: estado civil
+        type: TextInput
+        required: true
+        properties:
+          title: Estado civil   
+          
+
+      # - id: save_button
+      #   # type: Button
+      #   # layout:
+      #   #   span: 12
+      #   #   align: middle
+      #   # properties:
+      #   #   title: Cadastro
+      #   #   block: true
+      #   #   type: primary # Make the button a primary button with color
+      #   #   icon: SaveOutlined
+
+
+      - id: save_button
+        type: Button
+        layout:
+          span: 12
+        properties:
+          title: Save
+          icon: SaveOutlined
+          block: true
+
+      - id: cancel_button
+        type: Button
+        style:
+           font-style: italic
+        layout:
+          span: 12
+        properties:
+          title: Voltar
+          icon: CloseCircleOutlined
+          type: default
+          block: true
+        events:
+          onClick:
+            # Return to users page
+            - id: return_to_default
+              type: Link
+              params: users    

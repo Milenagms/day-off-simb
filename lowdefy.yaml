@@ -2,7 +2,24 @@
 lowdefy: 3.23.3
 name: Lowdefy starter
 
+menus:
+  - id: default
+    links:
+      - id: cadastro-funcionario
+        type: MenuLink
+        properties:
+          icon: AlertOutlined
+          title: cadastro de funcionario
+        pageId: cadastro-funcionario
+      - id: welcome
+        type: MenuLink
+        properties:
+          icon: HomeOutlined
+          title: Home
+        pageId: welcome
+
 pages:
+  - _ref: cadastro-funcionario.yaml
   - id: welcome
     type: PageHeaderMenu
     properties:
@@ -39,7 +56,7 @@ pages:
                               type: Link
                               params:
                                 url: https://docs.lowdefy.com
-                                newTab: true
+                                newWindow: true
       footer:
         blocks:
           - id: footer
@@ -48,4 +65,3 @@ pages:
               type: secondary
               content: |
                 Made by a Lowdefy 🤖
-
