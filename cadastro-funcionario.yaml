@@ -2,13 +2,27 @@ id: cadastro-funcionario
 type: PageHeaderMenu
 
 requests:
-  - id: save_data
+  - id: test
     type: KnexBuilder
     connectionId: mysql
     properties:
+      tableName: user
       query:
         - insert:
             - _state: true
+#
+#      - zip,
+#      - street,
+#      - number,
+#      - district,
+#      - city,
+#      - state,
+#      - country,
+#      - has_children,
+#      - children_qty,
+#      - children_names,
+#      - marital_state
+#
 
 
 properties:
@@ -49,13 +63,13 @@ blocks:
         properties:
           title: Senha  
 
-      - id: given_name
+      - id: first_name
         type: TextInput
         required: true
         properties:
           title: Nome
 
-      - id: first_name
+      - id: last_name
         type: TextInput
         required: true
         properties:
@@ -67,13 +81,13 @@ blocks:
         properties:
           title: Cep
 
-      - id: data
-        type: DateSelector
-        properties:
-          autoFocus: true
-          disabledDates:
-            dates: []
-            ranges: []
+#      - id:
+#        type: DateSelector
+#        properties:
+#          autoFocus: true
+#          disabledDates:
+#            dates: []
+#            ranges: []
 
 
       - id: street
@@ -107,38 +121,38 @@ blocks:
           title: Numero   
 
        
-      - id: has_children
-        # type: MultipleSelector
-        required: true
-        # properties:
-        #   title:  Quantidade de filhos 
+#      - id: has_children
+#        # type: MultipleSelector
+#        required: true
+#        # properties:
+#        #   title:  Quantidade de filhos
 
 
-        type: Selector
-        properties:
-          title:  Quantidade de filhos
-          options:
-            - label: 1
-              value: 1
-              disabled: false
-              filterString: null
-              style: null
-            - label: 2
-              value: 2
-              disabled: false
-              filterString: null
-              style: null
-            - label: 3 
-              value: 3
-              disabled: false
-              filterString: null
-              style: null
-
-            - label: Mais
-              value: 4
-              disabled: false
-              filterString: null
-              style: null
+#        type: Selector
+#        properties:
+#          title:  Quantidade de filhos
+#          options:
+#            - label: 1
+#              value: 1
+#              disabled: false
+#              filterString: null
+#              style: null
+#            - label: 2
+#              value: 2
+#              disabled: false
+#              filterString: null
+#              style: null
+#            - label: 3
+#              value: 3
+#              disabled: false
+#              filterString: null
+#              style: null
+#
+#            - label: Mais
+#              value: 4
+#              disabled: false
+#              filterString: null
+#              style: null
 
       - id: children_names
         type: TextInput
@@ -174,26 +188,11 @@ blocks:
           block: true
         events:
           onClick:
-            - id: fetch_save_data
+            # Insert user and return to users page
+            - id: create_employee
               type: Request
               params:
-                - first_name,
-                - last_name,
-                - cpf,
-                - email,
-                - password,
-                - zip,
-                - street,
-                - number,
-                - district,
-                - city,
-                - state,
-                - country,
-                - has_children,
-                - children_qty,
-                - children_names,
-                - marital_state
-
+              - test
 
       - id: cancel_button
         type: Button
