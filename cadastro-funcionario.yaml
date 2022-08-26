@@ -1,5 +1,16 @@
 id: cadastro-funcionario
 type: PageHeaderMenu
+
+requests:
+  - id: save_data
+    type: KnexBuilder
+    connectionId: mysql
+    properties:
+      query:
+        - insert:
+            - _state: true
+
+
 properties:
   title:  cadastro-funcionario # The title in the browser tab.
 layout:
@@ -19,6 +30,7 @@ blocks:
         properties:
           content: Cadastro de funcionários # Change the title on the page.
           level: 3 # Make the title a little smaller (an html `<h3>`).
+
       - id: cpf
         type: TextInput
         required: true
@@ -31,7 +43,7 @@ blocks:
         properties:
           title: Email  
 
-      - id: required_example
+      - id: password
         type: PasswordInput
         required: true
         properties:
@@ -43,16 +55,18 @@ blocks:
         properties:
           title: Nome
 
-      - id: family_name
+      - id: first_name
         type: TextInput
         required: true
         properties:
-          title: Sobrenome 
-      - id: cep
+          title: Sobrenome
+
+      - id: zip
         type: TextInput
         required: true
         properties:
           title: Cep
+
       - id: data
         type: DateSelector
         properties:
@@ -62,37 +76,38 @@ blocks:
             ranges: []
 
 
-      - id: logradouro
+      - id: street
         type: TextInput
         required: true
         properties:
           title: Logradoro
 
-      - id: bairro
+      - id: district
         type: TextInput
         required: true
         properties:
           title: Bairro
 
-      - id: cidade
+      - id: city
         type: TextInput
         required: true
         properties:
           title: Cidade   
 
-      - id: estado
+      - id: state
         type: TextInput
         required: true
         properties:
-          title: Estado 
-      - id: numero
+          title: Estado
+
+      - id: number
         type: TextInput
         required: true
         properties:
           title: Numero   
 
        
-      - id: filhos
+      - id: has_children
         # type: MultipleSelector
         required: true
         # properties:
@@ -124,13 +139,14 @@ blocks:
               disabled: false
               filterString: null
               style: null
-      - id: nome dos filhos
+
+      - id: children_names
         type: TextInput
         required: true
         properties:
           title: Nome dos filhos 
 
-      - id: estado civil
+      - id: marital_state
         type: TextInput
         required: true
         properties:
@@ -155,8 +171,29 @@ blocks:
           span: 12
         properties:
           title: Save
-          icon: SaveOutlined
           block: true
+        events:
+          onClick:
+            - id: fetch_save_data
+              type: Request
+              params:
+                - first_name,
+                - last_name,
+                - cpf,
+                - email,
+                - password,
+                - zip,
+                - street,
+                - number,
+                - district,
+                - city,
+                - state,
+                - country,
+                - has_children,
+                - children_qty,
+                - children_names,
+                - marital_state
+
 
       - id: cancel_button
         type: Button
@@ -174,4 +211,4 @@ blocks:
             # Return to users page
             - id: return_to_default
               type: Link
-              params: users    
+              params: users
