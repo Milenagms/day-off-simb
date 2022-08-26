@@ -1,6 +1,9 @@
 
 lowdefy: 3.23.3
 name: Lowdefy starter
+types:
+ AgGridAlpine:
+    url: https://blocks-cdn.lowdefy.com/v3.12.3/blocks-aggrid/meta/AgGridAlpine.json
 connections:
   - id: mysql
     type: Knex
@@ -32,7 +35,16 @@ menus:
           title: Home
         pageId: welcome
 
+      - id: lista-usuario
+        type: MenuLink
+        properties:
+          icon: AlertOutlined
+          title: Lista de Funcionários
+        pageId: lista-usuario
+
+
 pages:
+  - _ref: lista-usuario.yaml
   - _ref: cadastro-funcionario.yaml
   - id: welcome
     type: PageHeaderMenu
