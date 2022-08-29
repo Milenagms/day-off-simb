@@ -1,2 +1,5 @@
 .lowdefy/**
+.idea
+node_modules
+package-lock.json
 .env

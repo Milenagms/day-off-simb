@@ -1,0 +1,175 @@
+id: day-off-registration
+type: PageHeaderMenu
+
+requests:
+  - id: dayOff
+    type: KnexBuilder
+    connectionId: mysql
+    properties:
+      tableName: user
+      query:
+        - insert:
+            - _state: true
+
+properties:
+  title: Day off
+layout:
+  contentJustify: center
+
+blocks:
+  - id: content_card
+    type: Card
+    style:
+      border-radius: 50px 20px
+      box-shadow: 10px 10px 10px 5px black
+    layout:
+      size: 800
+      contentGutter: 5
+    blocks:
+      - id: page_heading
+        type: Title
+        properties:
+          content: Registros de Day off.
+          level: 2
+
+      - id: data
+        type: DateSelector
+        required: true
+        properties:
+          title: Data do day off
+
+      - id: type
+        type: RadioSelector
+        required: true
+        properties:
+          title: Tipo de day off
+          options:
+            - label: Meio day-off
+              value: 1
+              disabled: false
+              style: null
+            - label: day-off
+              value: 2
+              disabled: false
+              style: null
+            - label: Dispensa
+              value: 3
+              disabled: false
+              style: null
+
+      - id: team_warned
+        type: CheckboxSelector
+        required: true
+        properties:
+          title: Comunicou seus pares sobre sua ausência?
+          options:
+            - label: Sim
+              value: 1
+              disabled: false
+              style: null
+            - label: Não
+              value: 2
+              disabled: false
+              style: null
+
+
+      - id: lead_warned
+        type: CheckboxSelector
+        required: true
+        properties:
+          title: Comunicou seus liderados sobre sua ausência (caso se aplique)?
+          options:
+            - label: Sim
+              value: 1
+              disabled: false
+              style: null
+            - label: Não
+              value: 2
+              disabled: false
+              style: null
+
+      - id: your_manager
+        type: CheckboxSelector
+        required: true
+        properties:
+          title: Comunicou seu(s) gestor(es) sobre sua ausência?
+          options:
+            - label: Sim
+              value: 1
+              disabled: false
+              style: null
+            - label: Não
+              value: 2
+              disabled: false
+              style: null
+
+      - id: pending_task
+        type: CheckboxSelector
+        required: true
+        properties:
+          title: Não terá nenhuma tarefa pendente durante o período de ausência que pode impactar na produtividade e/ou continuidade de outros membros e equipes
+          options:
+            - label: Sim
+              value: 1
+              disabled: false
+              style: null
+            - label: Não
+              value: 2
+              disabled: false
+              style: null
+
+
+      - id: your_replacement
+        type: CheckboxSelector
+        required: true
+        properties:
+          title: Alinhou com as pessoas impactadas quem será seu substituto durante o período de ausência?
+          options:
+            - label: Sim
+              value: 1
+              disabled: false
+              style: null
+            - label: Não
+              value: 2
+              disabled: false
+              style: null
+
+      - id: replacement
+        type: TextInput
+        required: true
+        properties:
+          title: Seu substituto
+
+
+      - id: save_button
+        type: Button
+        layout:
+          span: 12
+        properties:
+          title: Save
+          block: true
+        events:
+          onClick:
+            # Insert user and return to users page
+            - id: create_employee
+              type: Request
+              params:
+                - test
+
+      - id: cancel_button
+        type: Button
+        style:
+          font-style: italic
+        layout:
+          span: 12
+        properties:
+          title: Voltar
+          icon: CloseCircleOutlined
+          type: default
+          block: true
+        events:
+          onClick:
+            # Return to users page
+            - id: return_to_default
+              type: Link
+              params: users

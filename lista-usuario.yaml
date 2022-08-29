@@ -1,0 +1,165 @@
+id: lista-usuario
+type: PageHeaderMenu
+properties:
+  title: Lista de Funcionários
+  # Prefetch the "edit-user" and "new-user" pages, since it is likely that the user will navigate to them.
+  prefetchPages:
+    - cadastro-funcionario
+    
+layout:
+  contentJustify: center
+
+
+
+events:
+  onEnterAsync:
+    # Fetch all users
+    # This is done in onEnterAsync instead of onInitAsync to update the users table
+    # after linking back from the new or edit pages.
+    - id: user
+      type: Request
+      params: get_users
+
+
+requests:
+  - id: get_users
+    type: KnexBuilder
+    connectionId:  mysql
+    properties:
+      tableName: user
+      query:
+        - select:
+          - "*"
+        - from:
+          - user    
+           
+
+
+blocks: 
+  - 
+    blocks: 
+      - 
+        id: title
+        layout: 
+          flex: "1 1 auto"
+        properties: 
+          content: Lista de funcionários
+          level: 2
+        type: Title
+      - 
+        events: 
+          onClick: 
+            - 
+              id: link_to_cadastro-funcionario
+              params: cadastro-funcionario
+              type: Link
+        id: new_user_button
+        layout: 
+          flex: "0 1 auto"
+        properties: 
+          icon: PlusOutlined
+          title: "New User"
+        type: Button
+      - 
+        blocks: 
+          - 
+            events: 
+              onRowClick: 
+                - 
+                  id: link_to_edit
+                  params: 
+                    input: 
+                      user_id: 
+                        _event: row._id
+                    pageId: edit-user
+                  type: Link
+            id: users_table
+            properties: 
+              columnDefs: 
+
+
+                - field:  cpf
+                  headerName: "Cpf"
+                  width: 150               
+                - 
+                  field: email
+                  headerName: Email
+                  width: 200
+                - 
+                  field: first_name
+                  headerName: "Nome"
+                  width: 150
+                - 
+                  field: last_name
+                  headerName: "Sobrenome"
+                  width: 150
+
+                - field:  birthday
+                  headerName: "Data de nascimento"
+                  width: 150
+                  
+                - field:  zip
+                  headerName: "Cep"
+                  width: 150
+
+                - field:  street
+                  headerName: "Lougradouro"
+                  width: 150
+                
+                - field: district 
+                  headerName: "Bairro"
+                  width: 150
+
+                - field: city
+                  headerName: "Cidade"
+                  width: 150
+
+                - field: state
+                  headerName: "Estado"
+                  width: 150
+
+                - field: number
+                  headerName: "Número"
+                  width: 150
+
+                - field: children_qty
+                  headerName: "Quantidade de filhos"
+                  width: 150
+                              
+                - field: children_names
+                  headerName: "Nome dos filhos"
+                  width: 150
+                
+                - field: status
+                  headerName: "Estado civil"
+                  width: 150
+
+                - 
+                  field: roles
+                  headerName: Roles
+                  width: 200
+                - 
+                  field: active
+                  headerName: Active
+                  width: 100
+                - 
+                  field: created_at
+                  headerName: "Created at"
+                  width: 150
+                - 
+                  field: updated_at
+                  headerName: "Updated at"
+                  width: 150
+              defaultColDef: 
+                filter: true
+                resizable: true
+                sortable: true
+              rowData: 
+                _request: get_users
+            type: AgGridAlpine
+        id: content_card
+        type: Card
+    id: max_width_box
+    layout: 
+      size: 1200
+    type: Box
