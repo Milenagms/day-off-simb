@@ -1,0 +1,35 @@
+id: login
+type: PageHeaderMenu
+
+properties:
+  title:  Login # The title in the browser tab.
+layout:
+  contentJustify: center # Center the contents of the page
+blocks:
+  - id: content_card
+    type: Card
+    style:
+      border-radius: 50px 20px
+      box-shadow: 10px 10px 10px 5px black
+    layout:
+      size: 800 # Set the size of the card so it does not fill the full screen
+      contentGutter: 5 # Make a 16px gap between all blocks in this card
+    blocks:
+      - id: page_heading
+        type: Title
+        properties:
+          content: Login
+          contentJustify: center
+          level: 3 # Make the title a little smaller (an html `<h3>`).
+
+      - id: cpf
+        type: TextInput
+        required: true
+        properties:
+          title: CPF
+
+      - id: password
+        type: TextInput
+        required: true
+        properties:
+          title: Senha
