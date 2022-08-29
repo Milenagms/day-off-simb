@@ -81,13 +81,14 @@ blocks:
         properties:
           title: Cep
 
-#      - id:
-#        type: DateSelector
-#        properties:
-#          autoFocus: true
-#          disabledDates:
-#            dates: []
-#            ranges: []
+      - id: birthday
+        type: DateSelector
+        properties:
+          title: Data de nascimento
+          autoFocus: true
+          disabledDates:
+            dates: []
+            ranges: []
 
 
       - id: street
@@ -120,39 +121,12 @@ blocks:
         properties:
           title: Numero   
 
-       
-#      - id: has_children
-#        # type: MultipleSelector
-#        required: true
-#        # properties:
-#        #   title:  Quantidade de filhos
+      - id: children_qty
+        type: TextInput
+        required: true
+        properties:
+          title: possui filhos? quantos?  
 
-
-#        type: Selector
-#        properties:
-#          title:  Quantidade de filhos
-#          options:
-#            - label: 1
-#              value: 1
-#              disabled: false
-#              filterString: null
-#              style: null
-#            - label: 2
-#              value: 2
-#              disabled: false
-#              filterString: null
-#              style: null
-#            - label: 3
-#              value: 3
-#              disabled: false
-#              filterString: null
-#              style: null
-#
-#            - label: Mais
-#              value: 4
-#              disabled: false
-#              filterString: null
-#              style: null
 
       - id: children_names
         type: TextInput
