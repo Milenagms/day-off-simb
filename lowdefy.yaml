@@ -69,6 +69,11 @@ menus:
 pages:
   - _ref: home.yaml
   - _ref: cadastro-funcionario.yaml
+  - _ref: login.yaml
+  - _ref: public-page.yaml
+  - _ref: day-off-registration.yaml
+  - _ref: lista-usuario.yaml
+  - _ref: editar-perfil.yaml
   - id: welcome
     type: PageHeaderMenu
     properties:
