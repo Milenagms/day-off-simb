@@ -1,0 +1,174 @@
+id: editar-perfil
+type: PageHeaderMenu
+# properties:
+#   title: Editar Perfil
+# # layout:
+# #   contentJustify: center
+
+
+
+
+
+
+requests:
+  
+  - id: update_profile
+    type: KnexRaw
+    connectionId: mysql
+    properties:
+      tablenName: user
+      query: update user set first_name = :name, last_name = :last   where user_id = 8
+      parameters:
+        name:
+         _state: first_name
+         
+        last:
+         _state: last_name
+             
+            
+            
+
+properties:
+  title:  editar perfil # The title in the browser tab.
+layout:
+  contentJustify: center # Center the contents of the page
+blocks:
+  - id: content_card
+    type: Card
+    style:
+      border-radius: 50px 20px
+      box-shadow: 10px 10px 10px 5px black
+    layout:
+      size: 800 # Set the size of the card so it does not fill the full screen
+      contentGutter: 5 # Make a 16px gap between all blocks in this card
+    blocks:
+     
+      - id: title
+        type: Title
+        style:
+          textAlign: center
+        properties:
+          content: Edit Profile
+          level: 2
+      - id: content_card
+        type: Card
+        layout:
+          size: 600
+          contentGutter: 16
+          contentJustify: center
+
+      # - id: cpf
+      #   type: TextInput
+      #   required: true
+      #   properties:
+      #     title: CPF 
+
+      # - id: email
+      #   type: TextInput
+      #   required: true
+      #   properties:
+      #     title: Email     
+
+      - id: first_name
+        type: TextInput
+        required: true
+        properties:
+          title: First Name
+      
+      - id: last_name
+        type: TextInput
+        required: true
+        properties:
+          title: Last Name
+        events:
+          onInit:
+        # Initialize the page state with the existing user name and picture.
+          - id: init
+            type: SetState
+            params:
+              first_name:
+                _user: first_name
+              last_name:
+                _user: last_name
+      # - id: birthday
+      #   type: DateSelector
+      #   properties:
+      #     title: Data de nascimento
+      #     autoFocus: true
+      #     disabledDates:
+      #       dates: []
+      #       ranges: []
+
+      # - id: zip
+      #   type: TextInput
+      #   required: true
+      #   properties:
+      #     title: Cep
+
+      # - id: street
+      #   type: TextInput
+      #   required: true
+      #   properties:
+      #     title: Logradouro
+
+
+      # - id: district
+      #   type: TextInput
+      #   required: true
+      #   properties:
+      #     title: Bairro
+
+      # - id: city
+      #   type: TextInput
+      #   required: true
+      #   properties:
+      #     title: Cidade     
+
+      # - id: state
+      #   type: TextInput
+      #   required: true
+      #   properties:
+      #     title: Estado
+  
+      # - id: number
+      #   type: TextInput
+      #   required: true
+      #   properties:
+      #     title: Numero   
+
+      # - id: children_qty
+      #   type: TextInput
+      #   required: true
+      #   properties:
+      #     title: possui filhos? quantos?  
+
+      # - id: children_names
+      #   type: TextInput
+      #   required: true
+      #   properties:
+      #     title: Nome dos filhos  
+
+      # - id: marital_state
+      #   type: TextInput
+      #   required: true
+      #   properties:
+      #     title: Estado civil   
+              
+  
+     
+         
+            
+      - id: save_button
+        type: Button
+        layout:
+          span: 12
+        properties:
+          title: Save
+          icon: SaveOutlined
+          block: true
+        events:
+          onClick:
+         
+            - id: update_profile_mysql
+              type: Request
+              params: update_profile    

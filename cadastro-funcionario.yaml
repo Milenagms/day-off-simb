@@ -95,7 +95,7 @@ blocks:
         type: TextInput
         required: true
         properties:
-          title: Logradoro
+          title: Logradouro
 
       - id: district
         type: TextInput

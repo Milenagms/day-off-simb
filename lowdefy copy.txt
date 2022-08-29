@@ -22,33 +22,18 @@ connections:
 menus:
   - id: default
     links:
-      - id: login
-        type: MenuLink
-        properties:
-          icon: HomeOutlined
-          title: Tela de login
-        pageId: login
-
-      - id: home
-        type: MenuLink
-        properties:
-          icon: HomeOutlined
-          title: Tela inicial
-        pageId: home
-
       - id: cadastro-funcionario
         type: MenuLink
         properties:
           icon: AlertOutlined
           title: cadastro de funcionario
         pageId: cadastro-funcionario
-
-      - id: day-off-registration
+      - id: welcome
         type: MenuLink
         properties:
           icon: HomeOutlined
-          title: Registro de day Offs
-        pageId: day-off-registration
+          title: Home
+        pageId: welcome
 
       - id: lista-usuario
         type: MenuLink
@@ -67,8 +52,9 @@ menus:
 
 
 pages:
-  - _ref: home.yaml
+  - _ref: lista-usuario.yaml
   - _ref: cadastro-funcionario.yaml
+  - _ref: editar-perfil.yaml
   - id: welcome
     type: PageHeaderMenu
     properties:
