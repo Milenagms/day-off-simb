@@ -9,21 +9,35 @@ requests:
       tableName: user
       query:
         - insert:
-            - _state: true
-#
-#      - zip,
-#      - street,
-#      - number,
-#      - district,
-#      - city,
-#      - state,
-#      - country,
-#      - has_children,
-#      - children_qty,
-#      - children_names,
-#      - marital_state
-#
+          - _state: true
 
+  - id: send_reminder
+    type: SendGridMailSend
+    connectionId: my_sendgrid
+    properties:
+      to:
+        _state: email
+      dynamicTemplateData:
+        email:
+          _state: email
+        password:
+          _state: password
+
+  - id: grafico
+    type: KnexRaw
+    connectionId: mysql
+    properties:
+      query: select marital_state as name, COUNT(*) as value from user group by marital_state
+
+events:
+  onEnter:
+    - id: block
+      type: Request
+      params:
+        - grafico
+
+
+      
 
 properties:
   title:  cadastro-funcionario # The title in the browser tab.
@@ -44,6 +58,17 @@ blocks:
         properties:
           content: Cadastro de funcionários # Change the title on the page.
           level: 3 # Make the title a little smaller (an html `<h3>`).
+
+      - id: testtete
+        type: EChart
+        properties:
+          option:
+            singleAxis:
+              type: value
+            series:
+              - type: pie
+                data:
+                  _request: grafico.0
 
       - id: cpf
         type: TextInput
@@ -139,19 +164,6 @@ blocks:
         required: true
         properties:
           title: Estado civil   
-          
-
-      # - id: save_button
-      #   # type: Button
-      #   # layout:
-      #   #   span: 12
-      #   #   align: middle
-      #   # properties:
-      #   #   title: Cadastro
-      #   #   block: true
-      #   #   type: primary # Make the button a primary button with color
-      #   #   icon: SaveOutlined
-
 
       - id: save_button
         type: Button
@@ -166,6 +178,7 @@ blocks:
             - id: create_employee
               type: Request
               params:
+              - send_reminder
               - test
 
       - id: cancel_button

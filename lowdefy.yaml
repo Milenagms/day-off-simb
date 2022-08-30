@@ -19,6 +19,14 @@ connections:
         password:
           _secret: MYSQL_PASSWORD
 
+  - id: my_sendgrid
+    type: SendGridMail
+    properties:
+      apiKey:
+        _secret: SENDGRID_API_KEY
+      from: milena.gomes@simbioseventures.com
+      templateId: d-a5be48fee5324a2a8e2a23e628d521e2
+
 menus:
   - id: default
     links:
