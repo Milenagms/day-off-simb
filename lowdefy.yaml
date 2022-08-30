@@ -40,7 +40,7 @@ menus:
         type: MenuLink
         properties:
           icon: AlertOutlined
-          title: cadastro de funcionario
+          title: Novo colaborador
         pageId: cadastro-funcionario
 
       - id: day-off-registration
