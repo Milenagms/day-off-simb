@@ -1,21 +1,53 @@
-id: day-off-registration
+id: day-off-editar
 type: PageHeaderMenu
+# properties:
+#   title: Editar Perfil
+# # layout:
+# #   contentJustify: center
+
+
+
+
+
 
 requests:
-  - id: dayOff
-    type: KnexBuilder
+  
+  - id: update_profile
+    type: KnexRaw
     connectionId: mysql
     properties:
-      tableName: dayOff
-      query:
-        - insert:
-            - _state: true
+      tablenName: user
+      query: update user set data = :name, type = :type, lead_warned = :lead_warned, your_manager = :your_manager, pending_task = :pending_task, your_replacement = :your_replacement, replacement = :replacement where user_id = 8
+      parameters:
+        name:
+         _state: name
+         
+        last:
+         _state: type
+
+        cpf:
+         _state: lead_warned
+
+        email:
+         _state: your_manager
+
+        birthday:
+         _state: pending_task
+
+        zip:
+         _state: your_replacement 
+
+        replacement:
+         _statr: replacement
+
+                   
+            
+            
 
 properties:
-  title: Day off
+  title:  editar perfil # The title in the browser tab.
 layout:
-  contentJustify: center
-
+  contentJustify: center # Center the contents of the page
 blocks:
   - id: content_card
     type: Card
@@ -23,14 +55,23 @@ blocks:
       border-radius: 50px 20px
       box-shadow: 10px 10px 10px 5px black
     layout:
-      size: 800
-      contentGutter: 5
+      size: 800 # Set the size of the card so it does not fill the full screen
+      contentGutter: 5 # Make a 16px gap between all blocks in this card
     blocks:
-      - id: page_heading
+     
+      - id: title
         type: Title
+        style:
+          textAlign: center
         properties:
-          content: Registros de Day off.
+          content: Edit Profile
           level: 2
+      - id: content_card
+        type: Card
+        layout:
+          size: 600
+          contentGutter: 16
+          contentJustify: center
 
       - id: data
         type: DateSelector
@@ -56,7 +97,7 @@ blocks:
               value: Dispensa
               disabled: false
               style: null
-
+   
       - id: team_warned
         type: CheckboxSelector
         required: true
@@ -72,8 +113,7 @@ blocks:
               disabled: false
               style: null
 
-
-      - id: lead_warned
+       - id: lead_warned
         type: CheckboxSelector
         required: true
         properties:
@@ -87,7 +127,6 @@ blocks:
               value: Não
               disabled: false
               style: null
-
       - id: your_manager
         type: CheckboxSelector
         required: true
@@ -102,7 +141,6 @@ blocks:
               value: Não
               disabled: false
               style: null
-
       - id: pending_task
         type: CheckboxSelector
         required: true
@@ -117,9 +155,7 @@ blocks:
               value: Não
               disabled: false
               style: null
-
-
-      - id: your_replacement
+       - id: your_replacement
         type: CheckboxSelector
         required: true
         properties:
@@ -133,41 +169,32 @@ blocks:
               value: Não
               disabled: false
               style: null
-
       - id: replacement
         type: TextInput
         required: true
         properties:
           title: Seu substituto
-
-
+            
+  
+         
+            
       - id: save_button
         type: Button
         layout:
           span: 12
         properties:
           title: Save
+          icon: SaveOutlined
           block: true
         events:
           onClick:
-            - id: create_employee
+         
+            - id: update_profile_mysql
               type: Request
-              params:
-                - dayOff  
+              params: update_profile    
+            
+            
 
-      - id: cancel_button
-        type: Button
-        style:
-          font-style: italic
-        layout:
-          span: 12
-        properties:
-          title: Voltar
-          icon: CloseCircleOutlined
-          type: default
-          block: true
-        events:
-          onClick:
-            - id: return_to_default
-              type: Link
-              params: users
+           
+              
+            

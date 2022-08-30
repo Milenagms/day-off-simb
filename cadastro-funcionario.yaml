@@ -1,6 +1,7 @@
 id: cadastro-funcionario
 type: PageHeaderMenu
 
+
 requests:
   - id: test
     type: KnexBuilder
@@ -180,6 +181,10 @@ blocks:
               params:
               - send_reminder
               - test
+            - id: return_to_redirecionamento
+              type: Link
+              params: redirecionamento    
+  
 
       - id: cancel_button
         type: Button

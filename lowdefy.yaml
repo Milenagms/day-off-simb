@@ -30,12 +30,6 @@ connections:
 menus:
   - id: default
     links:
-      - id: login
-        type: MenuLink
-        properties:
-          icon: HomeOutlined
-          title: Tela de login
-        pageId: login
 
       - id: home
         type: MenuLink
@@ -71,16 +65,21 @@ menus:
           icon: AlertOutlined
           title: Editar Perfil
         pageId: editar-perfil
-
-
+      
+      - id: listagem-day-off
+        type: MenuLink
+        properties:
+          icon: AlertOutlined
+          title: Listagem de perfil
+        pageId: listagem-day-off
 
 pages:
   - _ref: home.yaml
   - _ref: cadastro-funcionario.yaml
-  - _ref: login.yaml
   - _ref: public-page.yaml
   - _ref: day-off-registration.yaml
   - _ref: lista-usuario.yaml
+  - _ref: listagem-day-off.yaml
   - _ref: editar-perfil.yaml
   - id: welcome
     type: PageHeaderMenu

@@ -5,6 +5,7 @@ properties:
   title:  tela inicial
 layout:
   contentJustify: center
+
 blocks:
   - id: content_card
     type: Card
@@ -21,3 +22,4 @@ blocks:
           content: tela inicial
           contentJustify: center
           level: 3
+ 

@@ -1,64 +1,62 @@
-id: lista-usuario
+id: listagem-day-off
 type: PageHeaderMenu
 properties:
-  title: Lista de Funcionários
+  title: Lista de Days Offs
   # Prefetch the "edit-user" and "new-user" pages, since it is likely that the user will navigate to them.
   prefetchPages:
-    - cadastro-funcionario
-    
+    - day-off-registration
+
+
 layout:
   contentJustify: center
-
-
 
 events:
   onEnterAsync:
     # Fetch all users
     # This is done in onEnterAsync instead of onInitAsync to update the users table
     # after linking back from the new or edit pages.
-    - id: user
+    - id: dayOff
       type: Request
-      params: get_users
+      params: get_dayOff
+
 
 
 requests:
-  - id: get_users
+  - id: get_dayOff
     type: KnexBuilder
     connectionId:  mysql
     properties:
-      tableName: user
+      tableName: dayOff
       query:
         - select:
           - "*"
         - from:
-          - user    
-           
-
+          - dayOff
 
 blocks: 
-  - 
+   - 
     blocks: 
       - 
         id: title
         layout: 
           flex: "1 1 auto"
         properties: 
-          content: Lista de funcionários
+          content: Lista de Days Offs
           level: 2
         type: Title
       - 
         events: 
           onClick: 
             - 
-              id: link_to_cadastro-funcionario
-              params: cadastro-funcionario
+              id: link_to_day-off-registration
+              params: day-off-registration
               type: Link
         id: new_user_button
         layout: 
           flex: "0 1 auto"
         properties: 
           icon: PlusOutlined
-          title: "New User"
+          title: "Add day off"
         type: Button
       - 
         blocks: 
@@ -66,35 +64,53 @@ blocks:
             events: 
               onRowClick: 
                 - 
-                  id: link_to_editar-perfil
+                  id: link_to_day-off-registration
                   params: 
                     input: 
                       user_id: 
                         _event: row._id
-                    pageId: editar-perfil
+                    pageId: day-off-registration
                   type: Link
-            id: users_table
+            id: dayOff_table
             properties: 
               columnDefs: 
 
 
                          
                 - 
-                  field: email
-                  headerName: Email
+                  field: data
+                  headerName: Data
                   width: 200
                 - 
-                  field: first_name
-                  headerName: "Nome"
+                  field: type
+                  headerName: "Tipo de day off"
                   width: 150
                 - 
-                  field: last_name
-                  headerName: "Sobrenome"
+                  field: lead_warned
+                  headerName: "comunicou seus pares"
                   width: 150
 
-                - field:  birthday
-                  headerName: "Data de nascimento"
+                - field:  your_manager
+                  headerName: "Comunicou seus liderados"
                   width: 150
+
+                - field:  pending_task
+                  headerName: "Não terá nenhuma tarefa pendente..."
+                  width: 150
+
+                - field:  your_replacement
+                  headerName: "Alinhou com as pessoas impactadas..."
+                  width: 150  
+
+                - field:  replacement
+                  headerName: "Seu substituto"
+                  width: 150
+
+
+
+
+
+                    
 
                 - 
                   field: roles
@@ -117,7 +133,7 @@ blocks:
                 resizable: true
                 sortable: true
               rowData: 
-                _request: get_users
+                _request: get_dayOff
             type: AgGridAlpine
         id: content_card
         type: Card
@@ -125,3 +141,6 @@ blocks:
     layout: 
       size: 800
     type: Box
+  
+     
+           
