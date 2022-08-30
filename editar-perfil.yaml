@@ -17,14 +17,50 @@ requests:
     connectionId: mysql
     properties:
       tablenName: user
-      query: update user set first_name = :name, last_name = :last   where user_id = 8
+      query: update user set first_name = :name, last_name = :last, cpf = :cpf, email = :email, birthday = :birthday, zip = :zip,  street = :street, district = :district, city = :city, state = :state, number = :number,  children_qty = :children_qty, children_names  = :children_names, marital_state = :marital_state    where user_id = 8
       parameters:
         name:
          _state: first_name
          
         last:
          _state: last_name
-             
+
+        cpf:
+         _state: cpf
+
+        email:
+         _state: email
+
+        birthday:
+         _state: birthday
+
+        zip:
+         _state: zip 
+
+        street:
+         _state: street 
+
+        district:
+         _state: district 
+
+        city:
+         _state: city
+
+        state:
+         _state: state 
+
+        number:
+         _state: number 
+
+        children_qty:
+         _state: children_qty 
+
+        children_names:
+         _state: children_names 
+
+        marital_state:
+         _state: marital_state 
+                   
             
             
 
@@ -57,17 +93,17 @@ blocks:
           contentGutter: 16
           contentJustify: center
 
-      # - id: cpf
-      #   type: TextInput
-      #   required: true
-      #   properties:
-      #     title: CPF 
+      - id: cpf
+        type: TextInput
+        required: true
+        properties:
+          title: CPF 
 
-      # - id: email
-      #   type: TextInput
-      #   required: true
-      #   properties:
-      #     title: Email     
+      - id: email
+        type: TextInput
+        required: true
+        properties:
+          title: Email     
 
       - id: first_name
         type: TextInput
@@ -90,69 +126,69 @@ blocks:
                 _user: first_name
               last_name:
                 _user: last_name
-      # - id: birthday
-      #   type: DateSelector
-      #   properties:
-      #     title: Data de nascimento
-      #     autoFocus: true
-      #     disabledDates:
-      #       dates: []
-      #       ranges: []
+      - id: birthday
+        type: DateSelector
+        properties:
+          title: Data de nascimento
+          autoFocus: true
+          disabledDates:
+            dates: []
+            ranges: []
 
-      # - id: zip
-      #   type: TextInput
-      #   required: true
-      #   properties:
-      #     title: Cep
+      - id: zip
+        type: TextInput
+        required: true
+        properties:
+          title: Cep
 
-      # - id: street
-      #   type: TextInput
-      #   required: true
-      #   properties:
-      #     title: Logradouro
+      - id: street
+        type: TextInput
+        required: true
+        properties:
+          title: Logradouro
 
 
-      # - id: district
-      #   type: TextInput
-      #   required: true
-      #   properties:
-      #     title: Bairro
+      - id: district
+        type: TextInput
+        required: true
+        properties:
+          title: Bairro
 
-      # - id: city
-      #   type: TextInput
-      #   required: true
-      #   properties:
-      #     title: Cidade     
+      - id: city
+        type: TextInput
+        required: true
+        properties:
+          title: Cidade     
 
-      # - id: state
-      #   type: TextInput
-      #   required: true
-      #   properties:
-      #     title: Estado
+      - id: state
+        type: TextInput
+        required: true
+        properties:
+          title: Estado
   
-      # - id: number
-      #   type: TextInput
-      #   required: true
-      #   properties:
-      #     title: Numero   
+      - id: number
+        type: TextInput
+        required: true
+        properties:
+          title: Numero   
 
-      # - id: children_qty
-      #   type: TextInput
-      #   required: true
-      #   properties:
-      #     title: possui filhos? quantos?  
+      - id: children_qty
+        type: TextInput
+        required: true
+        properties:
+          title: possui filhos? quantos?  
 
-      # - id: children_names
-      #   type: TextInput
-      #   required: true
-      #   properties:
-      #     title: Nome dos filhos  
+      - id: children_names
+        type: TextInput
+        required: true
+        properties:
+          title: Nome dos filhos  
 
-      # - id: marital_state
-      #   type: TextInput
-      #   required: true
-      #   properties:
-      #     title: Estado civil   
+      - id: marital_state
+        type: TextInput
+        required: true
+        properties:
+          title: Estado civil   
               
   
      
@@ -172,3 +208,12 @@ blocks:
             - id: update_profile_mysql
               type: Request
               params: update_profile    
+            
+            - id: link_to_home 
+              type: Link
+              params:
+                pageId: home
+
+           
+              
+            
