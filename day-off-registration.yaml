@@ -6,7 +6,7 @@ requests:
     type: KnexBuilder
     connectionId: mysql
     properties:
-      tableName: user
+      tableName: dayOff
       query:
         - insert:
             - _state: true
@@ -45,15 +45,15 @@ blocks:
           title: Tipo de day off
           options:
             - label: Meio day-off
-              value: 1
+              value: Meio day-off
               disabled: false
               style: null
-            - label: day-off
-              value: 2
+            - label: Day-off
+              value: day-off
               disabled: false
               style: null
             - label: Dispensa
-              value: 3
+              value: Dispensa
               disabled: false
               style: null
 
@@ -64,11 +64,11 @@ blocks:
           title: Comunicou seus pares sobre sua ausência?
           options:
             - label: Sim
-              value: 1
+              value: Sim
               disabled: false
               style: null
             - label: Não
-              value: 2
+              value: Não
               disabled: false
               style: null
 
@@ -84,7 +84,7 @@ blocks:
               disabled: false
               style: null
             - label: Não
-              value: 2
+              value: Não
               disabled: false
               style: null
 
@@ -95,11 +95,11 @@ blocks:
           title: Comunicou seu(s) gestor(es) sobre sua ausência?
           options:
             - label: Sim
-              value: 1
+              value: Sim
               disabled: false
               style: null
             - label: Não
-              value: 2
+              value: Não
               disabled: false
               style: null
 
@@ -110,11 +110,11 @@ blocks:
           title: Não terá nenhuma tarefa pendente durante o período de ausência que pode impactar na produtividade e/ou continuidade de outros membros e equipes
           options:
             - label: Sim
-              value: 1
+              value: Sim
               disabled: false
               style: null
             - label: Não
-              value: 2
+              value: Não
               disabled: false
               style: null
 
@@ -126,11 +126,11 @@ blocks:
           title: Alinhou com as pessoas impactadas quem será seu substituto durante o período de ausência?
           options:
             - label: Sim
-              value: 1
+              value: Sim
               disabled: false
               style: null
             - label: Não
-              value: 2
+              value: Não
               disabled: false
               style: null
 
@@ -150,11 +150,10 @@ blocks:
           block: true
         events:
           onClick:
-            # Insert user and return to users page
             - id: create_employee
               type: Request
               params:
-                - test
+                - dayOff
 
       - id: cancel_button
         type: Button
@@ -169,7 +168,6 @@ blocks:
           block: true
         events:
           onClick:
-            # Return to users page
             - id: return_to_default
               type: Link
               params: users
