@@ -1,9 +1,10 @@
 id: editar-perfil
-type: PageHeaderMenu
+type: PageSiderMenu
 # properties:
 #   title: Editar Perfil
 # # layout:
 # #   contentJustify: center
+
 
 
 

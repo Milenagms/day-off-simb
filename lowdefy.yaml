@@ -26,103 +26,65 @@ connections:
         _secret: SENDGRID_API_KEY
       from: milena.gomes@simbioseventures.com
       templateId: d-a5be48fee5324a2a8e2a23e628d521e2
+id: block_id
+type: PageSiderMenu
+properties:
+  breadcrumb:
+    list: []
 
-menus:
-  - id: default
-    links:
 
-      - id: home
-        type: MenuLink
-        properties:
-          icon: HomeOutlined
-          title: Tela inicial
-        pageId: home
+  menus:
+        - id: default
+          links:
 
-      - id: cadastro-funcionario
-        type: MenuLink
-        properties:
-          icon: AlertOutlined
-          title: Novo colaborador
-        pageId: cadastro-funcionario
+            - id: home
+              type: MenuLink
+              properties:
+                icon: HomeOutlined
+                title: Tela inicial
+              pageId: home
 
-      - id: day-off-registration
-        type: MenuLink
-        properties:
-          icon: HomeOutlined
-          title: Registro de day Offs
-        pageId: day-off-registration
+            - id: cadastro-funcionario
+              type: MenuLink
+              properties:
+                icon: AlertOutlined
+                title: Novo colaborador
+              pageId: cadastro-funcionario
 
-      - id: lista-usuario
-        type: MenuLink
-        properties:
-          icon: AlertOutlined
-          title: Lista de Funcionários
-        pageId: lista-usuario
+            - id: day-off-registration
+              type: MenuLink
+              properties:
+                icon: HomeOutlined
+                title: Registro de day Offs
+              pageId: day-off-registration
 
-      - id: editar-perfil
-        type: MenuLink
-        properties:
-          icon: AlertOutlined
-          title: Editar Perfil
-        pageId: editar-perfil
-      
-      - id: listagem-day-off
-        type: MenuLink
-        properties:
-          icon: AlertOutlined
-          title: Listagem de perfil
-        pageId: listagem-day-off
+            - id: lista-usuario
+              type: MenuLink
+              properties:
+                icon: AlertOutlined
+                title: Lista de Funcionários
+              pageId: lista-usuario
 
+            - id: editar-perfil
+              type: MenuLink
+              properties:
+                icon: AlertOutlined
+                title: Editar Perfil
+              pageId: editar-perfil
+            
+            - id: listagem-day-off
+              type: MenuLink
+              properties:
+                icon: AlertOutlined
+                title: Listagem de Day Off
+              pageId: listagem-day-off
+    
+     
 pages:
   - _ref: home.yaml
   - _ref: cadastro-funcionario.yaml
-  - _ref: public-page.yaml
   - _ref: day-off-registration.yaml
   - _ref: lista-usuario.yaml
   - _ref: listagem-day-off.yaml
   - _ref: editar-perfil.yaml
-  - id: welcome
-    type: PageHeaderMenu
-    properties:
-      title: Welcome
-    areas:
-      content:
-        justify: center
-        blocks:
-          - id: content_card
-            type: Card
-            style:
-              maxWidth: 800
-            blocks:
-              - id: content
-                type: Result
-                properties:
-                  title: Welcome to your Lowdefy app
-                  subTitle: We are excited to see what you are going to build
-                  icon:
-                    name: HeartTwoTone
-                    color: '#f00'
-                areas:
-                  extra:
-                    blocks:
-                      - id: docs_button
-                        type: Button
-                        properties:
-                          size: large
-                          title: Let's build something
-                          color: '#1890ff'
-                        events:
-                          onClick:
-                            - id: link_to_docs
-                              type: Link
-                              params:
-                                url: https://docs.lowdefy.com
-                                newWindow: true
-      footer:
-        blocks:
-          - id: footer
-            type: Paragraph
-            properties:
-              type: secondary
-              content: |
-                Made by a Lowdefy 🤖
+ 

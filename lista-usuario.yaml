@@ -1,5 +1,5 @@
 id: lista-usuario
-type: PageHeaderMenu
+type: PageSiderMenu
 properties:
   title: Lista de Funcionários
   # Prefetch the "edit-user" and "new-user" pages, since it is likely that the user will navigate to them.

@@ -1,5 +1,5 @@
 id: day-off-registration
-type: PageHeaderMenu
+type: PageSiderMenu
 
 requests:
   - id: dayOff

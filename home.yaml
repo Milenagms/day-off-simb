@@ -1,5 +1,5 @@
 id: home
-type: PageHeaderMenu
+type: PageSiderMenu
 
 properties:
   title:  tela inicial
@@ -73,7 +73,7 @@ blocks:
         layout:
           span: 12
         properties:
-          title: Adicionar Day Off
+          title: Adicionar Day 
           icon: CloseCircleOutlined
           type: default
           block: true
