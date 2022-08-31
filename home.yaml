@@ -12,14 +12,74 @@ blocks:
     style:
       border-radius: 50px 20px
       box-shadow: 10px 10px 10px 5px black
+      text-align: center
     layout:
-      size: 800
+      size: 500
       contentGutter: 5
     blocks:
       - id: page_heading
         type: Title
+        
         properties:
-          content: tela inicial
+          content: Bem vindo
           contentJustify: center
           level: 3
- 
+
+      - id: block_id
+        type: Html
+        properties:
+          contentJustify: center
+          html: 
+                 
+              <div class="instagram-wrapper">
+                  
+                  <div class="instagram-continue">
+                      <div class="group">
+                          <img alt="Instagram Logo" id="logo" src="https://media-exp1.licdn.com/dms/image/C4D0BAQE-3EnKDVW-_w/company-logo_200_200/0/1580782652276?e=1669852800&amp;v=beta&amp;t=rhntAVp7eJ6rJ-3p5YRolF8YqHS3EN4QtrBNuVkU6zc">
+                        
+                      </div>
+                      
+                      <div class="get-the-app">
+                          <div class="download">
+                                            
+                              <img alt="" id="imgbuttom" src="../img/app-download-buttons.png">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+      - id: button_cadastro
+        type: Button
+        style:
+           font-style: italic
+        layout:
+          span: 12
+        properties:
+          title: Cadastro
+          icon: CloseCircleOutlined
+          type: default
+          block: true
+        events:
+          onClick:
+            # Return to users page
+            - id: return_to_default
+              type: Link
+              params: cadastro-funcionario
+
+      - id: cancel_button
+        type: Button
+        style:
+           font-style: italic
+        layout:
+          span: 12
+        properties:
+          title: Adicionar Day Off
+          icon: CloseCircleOutlined
+          type: default
+          block: true
+        events:
+          onClick:
+            # Return to users page
+            - id: return_to_default
+              type: Link
+              params: day-off-registration

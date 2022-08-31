@@ -181,9 +181,8 @@ blocks:
               params:
               - send_reminder
               - test
-            - id: return_to_redirecionamento
-              type: Link
-              params: redirecionamento    
+            - id: return_to_home
+              params: home
   
 
       - id: cancel_button
