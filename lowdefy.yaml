@@ -85,4 +85,5 @@ pages:
   - _ref: lista-usuario.yaml
   - _ref: listagem-day-off.yaml
   - _ref: editar-perfil.yaml
+  - _ref: redirecionamento.yaml
  
