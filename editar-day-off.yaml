@@ -17,7 +17,7 @@ requests:
     connectionId: mysql
     properties:
       tablenName: dayOff
-      query: update dayOff set data = :data, type = :type, lead_warned = :lead_warned, your_manager = :your_manager, pending_task = :pending_task, your_replacement = :your_replacement, replacement = :replacement  where day_off = 8
+      query: update dayOff set data = :data, type = :type, lead_warned = :lead_warned, your_manager = :your_manager, pending_task = :pending_task, your_replacement =:your_replacement, replacement = :replacement   where day_off = 8
       parameters:
         data:
          _state: data
@@ -45,7 +45,7 @@ requests:
             
 
 properties:
-  title:  editar  # The title in the browser tab.
+  title:  editar day off  # The title in the browser tab.
 layout:
   contentJustify: center # Center the contents of the page
 blocks:
@@ -193,7 +193,10 @@ blocks:
               type: Request
               params: update_profile    
             
-            
+            - id: return_to_redirecionamento
+              type: Link
+              params: redirecionamento
+  
 
            
               

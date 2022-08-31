@@ -26,14 +26,15 @@ connections:
         _secret: SENDGRID_API_KEY
       from: milena.gomes@simbioseventures.com
       templateId: d-a5be48fee5324a2a8e2a23e628d521e2
-id: block_id
-type: PageSiderMenu
-properties:
-  breadcrumb:
-    list: []
+# id: block_id
+# type: PageSiderMenu
+# properties:
+#   breadcrumb:
+#     list: []
 
 
 menus:
+<<<<<<< Updated upstream
   - id: default
     links:
       - id: home
@@ -42,6 +43,10 @@ menus:
           icon: HomeOutlined
           title: Tela inicial
         pageId: home
+=======
+        - id: default
+          links:
+>>>>>>> Stashed changes
 
       - id: cadastro-funcionario
         type: MenuLink
@@ -78,6 +83,33 @@ menus:
           title: Listagem de Day Off
         pageId: listagem-day-off
 
+<<<<<<< Updated upstream
+=======
+            - id: editar-perfil
+              type: MenuLink
+              properties:
+                icon: AlertOutlined
+                title: Editar Perfil
+              pageId: editar-perfil
+            
+            - id: listagem-day-off
+              type: MenuLink
+              properties:
+                icon: AlertOutlined
+                title: Lista de Day Off
+              pageId: listagem-day-off
+
+
+            - id: edição-day-off
+              type: MenuLink
+              properties:
+                icon: AlertOutlined
+                title: Edição de day off
+              pageId: day-off-editar
+        
+    
+     
+>>>>>>> Stashed changes
 pages:
   - _ref: home.yaml
   - _ref: cadastro-funcionario.yaml
@@ -85,4 +117,5 @@ pages:
   - _ref: lista-usuario.yaml
   - _ref: listagem-day-off.yaml
   - _ref: editar-perfil.yaml
- 
+  - _ref: editar-day-off.yaml
+  - _ref: redirecionamento.yaml

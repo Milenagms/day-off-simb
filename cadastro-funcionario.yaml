@@ -177,9 +177,9 @@ blocks:
               params:
               - send_reminder
               - test
-            - id: return_to_home
+            - id: return_to_redirecionamento
               type: Link
-              params: home
+              params: redirecionamento
   
 
       - id: cancel_button

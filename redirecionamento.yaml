@@ -1,0 +1,29 @@
+id: redirecionamento
+type: PageSiderMenu
+
+properties:
+  title: Obrigada
+layout:
+  contentJustify: center
+
+
+
+blocks:
+  - id: content_card
+    type: Card
+    style:
+      border-radius: 50px 20px
+      box-shadow: 10px 10px 10px 5px black
+    layout:
+      size: 800
+      contentGutter: 5
+    blocks:
+      - id: page_heading
+        type: Title
+        properties:
+          content: Seus dados foram submetidos com sucesso!!!
+          level: 2
+
+      - id: Nota pela experiência
+        type: RatingSlider
+        

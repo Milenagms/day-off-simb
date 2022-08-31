@@ -154,6 +154,9 @@ blocks:
               type: Request
               params:
                 - dayOff  
+            - id: return_to_redirecionamento
+              type: Link
+              params: redirecionamento    
 
       - id: cancel_button
         type: Button
