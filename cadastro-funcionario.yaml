@@ -1,7 +1,6 @@
 id: cadastro-funcionario
 type: PageSiderMenu
 
-
 requests:
   - id: test
     type: KnexBuilder
@@ -38,8 +37,6 @@ events:
         - grafico
 
 
-      
-
 properties:
   title:  cadastro-funcionario # The title in the browser tab.
 layout:
@@ -51,14 +48,14 @@ blocks:
       border-radius: 50px 20px
       box-shadow: 10px 10px 10px 5px black
     layout:
-      size: 800 # Set the size of the card so it does not fill the full screen
-      contentGutter: 5 # Make a 16px gap between all blocks in this card
+      size: 800
+      contentGutter: 5
     blocks:
       - id: page_heading
         type: Title
         properties:
-          content: Cadastro de funcionários # Change the title on the page.
-          level: 3 # Make the title a little smaller (an html `<h3>`).
+          content: Cadastro de funcionários
+          level: 3
 
       - id: testtete
         type: EChart
@@ -175,7 +172,6 @@ blocks:
           block: true
         events:
           onClick:
-            # Insert user and return to users page
             - id: create_employee
               type: Request
               params:
@@ -199,7 +195,6 @@ blocks:
           block: true
         events:
           onClick:
-            # Return to users page
             - id: return_to_default
               type: Link
               params: users

@@ -33,53 +33,51 @@ properties:
     list: []
 
 
-  menus:
-        - id: default
-          links:
+menus:
+  - id: default
+    links:
+      - id: home
+        type: MenuLink
+        properties:
+          icon: HomeOutlined
+          title: Tela inicial
+        pageId: home
 
-            - id: home
-              type: MenuLink
-              properties:
-                icon: HomeOutlined
-                title: Tela inicial
-              pageId: home
+      - id: cadastro-funcionario
+        type: MenuLink
+        properties:
+          icon: AlertOutlined
+          title: Novo colaborador
+        pageId: cadastro-funcionario
 
-            - id: cadastro-funcionario
-              type: MenuLink
-              properties:
-                icon: AlertOutlined
-                title: Novo colaborador
-              pageId: cadastro-funcionario
+      - id: day-off-registration
+        type: MenuLink
+        properties:
+          icon: HomeOutlined
+          title: Registro de day Offs
+        pageId: day-off-registration
 
-            - id: day-off-registration
-              type: MenuLink
-              properties:
-                icon: HomeOutlined
-                title: Registro de day Offs
-              pageId: day-off-registration
+      - id: lista-usuario
+        type: MenuLink
+        properties:
+          icon: AlertOutlined
+          title: Lista de Funcionários
+        pageId: lista-usuario
 
-            - id: lista-usuario
-              type: MenuLink
-              properties:
-                icon: AlertOutlined
-                title: Lista de Funcionários
-              pageId: lista-usuario
+      - id: editar-perfil
+        type: MenuLink
+        properties:
+          icon: AlertOutlined
+          title: Editar Perfil
+        pageId: editar-perfil
 
-            - id: editar-perfil
-              type: MenuLink
-              properties:
-                icon: AlertOutlined
-                title: Editar Perfil
-              pageId: editar-perfil
-            
-            - id: listagem-day-off
-              type: MenuLink
-              properties:
-                icon: AlertOutlined
-                title: Listagem de Day Off
-              pageId: listagem-day-off
-    
-     
+      - id: listagem-day-off
+        type: MenuLink
+        properties:
+          icon: AlertOutlined
+          title: Listagem de Day Off
+        pageId: listagem-day-off
+
 pages:
   - _ref: home.yaml
   - _ref: cadastro-funcionario.yaml
